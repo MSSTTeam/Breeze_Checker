@@ -1,15 +1,16 @@
 package com.aliyun.api.gateway.demo;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.aliyun.api.gateway.demo.constant.Constants;
-import com.aliyun.api.gateway.demo.constant.HttpSchema;
-import com.aliyun.api.gateway.demo.enums.Method;
+// import com.alibaba.fastjson.JSON;
+// import com.alibaba.fastjson.JSONObject;
+// import com.aliyun.api.gateway.demo.constant.Constants;
+// import com.aliyun.api.gateway.demo.constant.HttpSchema;
+// import com.aliyun.api.gateway.demo.enums.Method;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+// 请注意：这只是个示例代码，我总不可能把api弄过来罢（
 public class SingleSendSms {
     private final static String APP_KEY = "AppKey"; //AppKey从控制台获取
     private final static String APP_SECRET = "AppSecret"; //AppSecret从控制台获取
@@ -27,7 +28,7 @@ public class SingleSendSms {
         Request request =  new Request(Method.GET, HttpSchema.HTTP + HOST, path, APP_KEY, APP_SECRET, Constants.DEFAULT_TIMEOUT);
         
         //请求的query
-        Map<String, String> querys = new HashMap<String, String>();
+        Map<String, String> querys = new HashMap<>();
         querys.put("SignName", SIGN_NAME);
         querys.put("TemplateCode", TEMPLATE_CODE);
         querys.put("RecNum", phoneNum);
@@ -35,7 +36,7 @@ public class SingleSendSms {
         request.setQuerys(querys);
         
         try {
-            Map<String, String> bodymap = new HashMap<String, String>();
+            Map<String, String> bodymap;
             Response response = Client.execute(request);
             //根据实际业务需要，调整对response的处理
             if (null == response) {
@@ -60,7 +61,7 @@ public class SingleSendSms {
     }
     
     private Map<String, String> ReadResponseBodyContent(String body) {
-        Map<String, String> map = new HashMap<String, String>();     
+        Map<String, String> map = new HashMap<>();
         try {
             JSONObject jsonObject = JSON.parseObject(body);
             if (null != jsonObject) {                
@@ -78,16 +79,9 @@ public class SingleSendSms {
     }
     
     
-    public  static void main(String agrs[]){
+    public  static void main(String[] agrs){
         SingleSendSms app = new SingleSendSms();
         app.sendMsg("18600000000,13800000000","{'name':'David'}");
     }
 }
 
-public class main {
-    public void preLoginHandler(AsyncPlayerPreLoginEvent event) {
-        if (event.getname().equals("Dreeam__")) {
-            system.outprintin("阿里云爹我错了放我过去一次吧")
-        }
-    }
-}
