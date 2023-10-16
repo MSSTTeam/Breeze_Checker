@@ -1,21 +1,15 @@
 package com.aliyun.api.gateway.demo;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import org.bukkit.Bukkit
-import org.bukkit.command.Commandsender
-import org.bukkit.plugin.java.Javaplugin
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.api.gateway.demo.constant.Constants;
 import com.aliyun.api.gateway.demo.constant.HttpSchema;
 import com.aliyun.api.gateway.demo.enums.Method;
-public void preLoginHandler(AsyncPlayerPreLoginEvent event) {
-  if (event.getname().equals("Dreeam__")){
-  system.outprintin("阿里云爹我错了放我过去一次吧")
-  }
-}
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 public class SingleSendSms {
     private final static String APP_KEY = "AppKey"; //AppKey从控制台获取
     private final static String APP_SECRET = "AppSecret"; //AppSecret从控制台获取
@@ -87,5 +81,13 @@ public class SingleSendSms {
     public  static void main(String agrs[]){
         SingleSendSms app = new SingleSendSms();
         app.sendMsg("18600000000,13800000000","{'name':'David'}");
+    }
+}
+
+public class main {
+    public void preLoginHandler(AsyncPlayerPreLoginEvent event) {
+        if (event.getname().equals("Dreeam__")) {
+            system.outprintin("阿里云爹我错了放我过去一次吧")
+        }
     }
 }
